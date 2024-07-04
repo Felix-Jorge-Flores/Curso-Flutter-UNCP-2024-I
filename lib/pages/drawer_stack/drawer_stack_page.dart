@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:prueba_flutter_2024/pages/alert/alerta_page.dart';
-import 'package:prueba_flutter_2024/pages/alert/alerta_page_2.dart';
+import 'package:prueba_flutter_2024/pages/alert/alert_pages.dart';
 import 'package:prueba_flutter_2024/pages/inputs/inputs.dart';
 import '../../assets/constants.dart' as constants;
 
@@ -14,7 +13,7 @@ class DrawerStackPage extends StatefulWidget {
 
 class _DrawerYStackPageState extends State<DrawerStackPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  bool isInvisible = false;
+  bool isInvisible = true;
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -95,11 +94,13 @@ class _DrawerYStackPageState extends State<DrawerStackPage> {
       ),
       body: Stack(
         children: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.menu),
-            color: const Color(0xff944db7),
-            iconSize: 30,
-            onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+          SafeArea(
+            child: IconButton(
+              icon: const Icon(Icons.menu),
+              color: const Color(0xff944db7),
+              iconSize: 30,
+              onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+            ),
           ),
           const Stack(
             children: [
